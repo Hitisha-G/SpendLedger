@@ -1,5 +1,6 @@
 pragma solidity ^0.8.0;
 
+
 contract SpentLedger
 {
     uint public collected;
@@ -11,7 +12,10 @@ constructor(uint _collected){
      collected=remaining=_collected;
      owner = msg.sender;
 }
+
 mapping (string  => uint) public spent;
+
+
 // function Spent(string memory _name,uint _amount) public 
 //     {
 //         name=_name;
@@ -25,13 +29,16 @@ mapping (string  => uint) public spent;
 //             newRequest.HaveCollected=true;
 //         spent[_name]+=_amount;
 //     }
+
+
 struct objective
     {
         string description;
         uint value;
         bool HaveCollected;
-        
+        //uint amount;
     }
+    
     mapping(uint=>objective)public spendings;
     uint public numSpends;
 
@@ -51,5 +58,6 @@ struct objective
         if(_value<collected)
             newRequest.HaveCollected=true;
     }
+
 
 }
